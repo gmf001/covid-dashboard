@@ -4,3 +4,4 @@
 
 - Vite (vue)
 - Tailwind
+- Chart.js

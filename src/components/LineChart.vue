@@ -17,9 +17,14 @@
     labels: Array(props.data.length).fill(''),
     datasets: [
       {
+        label: 'Total',
         data: props.data,
-        backgroundColor: '#f471b5',
-        fill: true
+        borderColor: '#f471b5',
+        fill: false,
+        tension: 0.4,
+        pointBackgroundColor: '#f471b5',
+        pointRadius: 0,
+        pointHoverRadius: 0
       }
     ]
   }));
@@ -39,7 +44,7 @@
         display: false
       },
       y: {
-        display: false
+        display: true
       }
     }
   });

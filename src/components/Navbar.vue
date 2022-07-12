@@ -6,7 +6,44 @@
       </h1>
     </div>
 
-    <div>
+    <div class="flex items-center space-x-2">
+      <button
+        :class="[
+          'rounded-full h-11 w-11 text-xs font-semibold flex items-center justify-center border border-slate-200 dark:border-gray-700/50 p-3',
+          { 'text-pink-500 dark:text-pink-300': timeframe == 7 }
+        ]"
+        @click="$emit('updateTimeframe', 7)"
+      >
+        7
+      </button>
+      <button
+        :class="[
+          'rounded-full h-11 w-11 text-xs font-semibold flex items-center justify-center border border-slate-200 dark:border-gray-700/50 p-3',
+          { 'text-pink-500 dark:text-pink-300': timeframe == 30 }
+        ]"
+        @click="$emit('updateTimeframe', 30)"
+      >
+        30
+      </button>
+      <button
+        :class="[
+          'rounded-full h-11 w-11 text-xs font-semibold flex items-center justify-center border border-slate-200 dark:border-gray-700/50 p-3',
+          { 'text-pink-500 dark:text-pink-300': timeframe == 90 }
+        ]"
+        @click="$emit('updateTimeframe', 90)"
+      >
+        3M
+      </button>
+      <button
+        :class="[
+          'rounded-full h-11 w-11 text-xs font-semibold flex items-center justify-center border border-slate-200 dark:border-gray-700/50 p-3',
+          { 'text-pink-500 dark:text-pink-300': timeframe == 360 }
+        ]"
+        @click="$emit('updateTimeframe', 360)"
+      >
+        1YR
+      </button>
+
       <button
         class="rounded-full border border-slate-200 dark:border-gray-700/50 p-3"
         @click="toggleDark()"
@@ -24,4 +61,12 @@
 
   const isDark = useDark();
   const toggleDark = useToggle(isDark);
+
+  defineEmits({ updateTimeframe: Number });
+  defineProps({
+    timeframe: {
+      type: Number,
+      default: 0
+    }
+  });
 </script>
